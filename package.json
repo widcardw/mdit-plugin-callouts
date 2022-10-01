@@ -1,6 +1,6 @@
 {
   "name": "mdit-plugin-callouts",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "",
   "packageManager": "pnpm@7.12.2",
   "author": "widcardw",
@@ -17,7 +17,8 @@
       "types": "./dist/index.d.ts",
       "require": "./dist/index.cjs",
       "import": "./dist/index.mjs"
-    }
+    },
+    "./*": "./dist/*"
   },
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
