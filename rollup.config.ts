@@ -1,9 +1,8 @@
 import resolve from '@rollup/plugin-node-resolve'
 import typescript from '@rollup/plugin-typescript'
 import commonjs from '@rollup/plugin-commonjs'
-import postcss from 'rollup-plugin-postcss'
-import cssnano from 'cssnano'
 import dts from 'rollup-plugin-dts'
+import css from 'rollup-plugin-css-only'
 import pkg from './package.json'
 
 export default [
@@ -25,6 +24,7 @@ export default [
       resolve(),
       commonjs(),
       typescript(),
+      css({ output: 'bundle.css' }),
     ],
   },
   {
@@ -35,21 +35,9 @@ export default [
         format: 'es',
       },
     ],
-    plugins: [dts()],
-  },
-  {
-    input: './src/styles/style.css',
-    output: {
-      dir: 'dist',
-      extensions: ['.css'],
-    },
     plugins: [
-      postcss({
-        extract: true,
-        plugins: [
-          cssnano(),
-        ],
-      }),
+      dts(),
+      css({ output: 'bundle.css' }),
     ],
   },
 ]
