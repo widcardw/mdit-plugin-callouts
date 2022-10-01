@@ -24,7 +24,7 @@ export default [
       resolve(),
       commonjs(),
       typescript(),
-      css({ output: 'bundle.css' }),
+      css({ output: 'styles.css' }),
     ],
   },
   {
@@ -37,7 +37,20 @@ export default [
     ],
     plugins: [
       dts(),
-      css({ output: 'bundle.css' }),
+      css({ output: 'styles.css' }),
+    ],
+  },
+  {
+    input: './src/styles.ts',
+    output: [
+      {
+        file: 'dist/styles.d.ts',
+        format: 'es',
+      },
+    ],
+    plugins: [
+      dts(),
+      css({ output: 'styles.css' }),
     ],
   },
 ]
