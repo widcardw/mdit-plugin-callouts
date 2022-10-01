@@ -41,9 +41,11 @@ export default [
     input: './src/styles/style.css',
     output: {
       dir: 'dist',
+      extensions: ['.css'],
     },
     plugins: [
       postcss({
+        extract: true,
         plugins: [
           cssnano(),
         ],
