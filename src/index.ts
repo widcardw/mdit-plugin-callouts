@@ -1,4 +1,5 @@
 import type MarkdownIt from 'markdown-it'
+import './styles/style.css'
 
 const validateInfo = (info: string) => {
   if (!info)

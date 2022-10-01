@@ -24,7 +24,7 @@ export default [
       resolve(),
       commonjs(),
       typescript(),
-      css({ output: 'styles.css' }),
+      css({ output: 'index.css' }),
     ],
   },
   {
@@ -37,20 +37,20 @@ export default [
     ],
     plugins: [
       dts(),
-      css({ output: 'styles.css' }),
+      css({ output: 'index.css' }),
     ],
   },
-  {
-    input: './src/styles.ts',
-    output: [
-      {
-        file: 'dist/styles.d.ts',
-        format: 'es',
-      },
-    ],
-    plugins: [
-      dts(),
-      css({ output: 'styles.css' }),
-    ],
-  },
+  // {
+  //   input: './src/styles.ts',
+  //   output: [
+  //     {
+  //       file: 'dist/styles.d.ts',
+  //       format: 'es',
+  //     },
+  //   ],
+  //   plugins: [
+  //     dts(),
+  //     css({ output: 'index.css' }),
+  //   ],
+  // },
 ]
