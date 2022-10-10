@@ -1,6 +1,6 @@
 {
   "name": "mdit-plugin-callouts",
-  "version": "0.0.13",
+  "version": "1.0.0",
   "description": "",
   "packageManager": "pnpm@7.12.2",
   "author": "widcardw",
