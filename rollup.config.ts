@@ -40,17 +40,26 @@ export default [
       css({ output: 'index.css' }),
     ],
   },
-  // {
-  //   input: './src/styles.ts',
-  //   output: [
-  //     {
-  //       file: 'dist/styles.d.ts',
-  //       format: 'es',
-  //     },
-  //   ],
-  //   plugins: [
-  //     dts(),
-  //     css({ output: 'index.css' }),
-  //   ],
-  // },
+  {
+    input: './src/styles/default.ts',
+    output: [
+      {
+        file: './dist/styles-default.cjs',
+      },
+    ],
+    plugins: [
+      css({ output: 'index.css' }),
+    ],
+  },
+  {
+    input: './src/styles/vp.ts',
+    output: [
+      {
+        file: './dist/styles-vp.cjs',
+      },
+    ],
+    plugins: [
+      css({ output: 'vp.css' }),
+    ],
+  },
 ]
