@@ -12,6 +12,8 @@ For more examples, view them on my personal [blog](https://widcard.win/posts/upd
 
 ## Installation
 
+#### Step 1. Install the plugin
+
 Install the plugin with npm/yarn/pnpm.
 
 ```sh
@@ -35,11 +37,28 @@ export default defineConfig({
 })
 ```
 
-Import css in _main.ts_
+#### Step 2. Import css
+
+Import css into the entry file _main.ts_
 
 ```ts
 // main.ts
 import 'mdit-plugin-callouts/index.css'
+```
+
+If you are using vitepress, you should notice the [docs](https://vitepress.vuejs.org/guide/theme-introduction#using-a-custom-theme). You are supposed to import the css file in _docs/.vitepress/theme/index.ts_, not in _docs/.vitepress/config.ts_.
+
+```ts
+// docs/.vitepress/theme/index.js
+import DefaultTheme from 'vitepress/theme'
+import 'mdit-plugin-callouts/index.css' // <-- css files should be imported here
+
+export default {
+  ...DefaultTheme,
+  enhanceApp({ app }) {
+    // ...
+  },
+}
 ```
 
 ## Usage
@@ -83,7 +102,6 @@ The following callout types are supported.
 |bug	|bug|
 |example	|example|
 |quote	|quote, cite|
-
 
 ## License
 
