@@ -61,6 +61,12 @@ export default {
 }
 ```
 
+If you prefer the style of vitepress, you can change it into
+
+```ts
+import 'mdit-plugin-callouts/vp.css'
+```
+
 ## Usage
 
 Basic usage.
