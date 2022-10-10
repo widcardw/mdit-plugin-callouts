@@ -28,8 +28,7 @@
 }
 
 .custom-callout {
-    border-left-width: 3px;
-    border-style: solid;
+    border-left: 3px solid;
     border-radius: var(--callout-radius);
     margin: 1rem 0;
     --tw-shadow: 0 1px 3px 0 rgb(0 0 0/0.1),0 1px 2px -1px rgb(0 0 0/0.1);
@@ -75,6 +74,7 @@
     border-left: none;
     margin: 0 !important;
     background: rgba(0,0,0,0) !important;
+    padding: 0.5rem 1rem;
 }
 
 .custom-callout>blockquote>p {
