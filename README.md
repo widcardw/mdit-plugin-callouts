@@ -1,26 +1,28 @@
 # mdit plugin callouts
 
-[![NPM version](https://img.shields.io/npm/v/mdit-plugin-callouts?color=a1b858&label=)](https://www.npmjs.com/package/vitepress-plugin-callout)
+[![NPM version](https://img.shields.io/npm/v/mdit-plugin-callouts?color=a1b858&label=)](https://www.npmjs.com/package/mdit-plugin-callouts)
 
-This is a plugin for vitepress that support callout blocks. The callout block is inspired by [Obsidian](https://obsidian.md).
+This is a plugin for [vite](https://vitejs.dev) that support callout blocks. The callout block is inspired by [Obsidian](https://obsidian.md).
 
 ## Example
 
-View on my personal [blog](https://widcard.win/posts/updater_tutorials/c04_update_from_func).
+![](./assets/examples.png)
+
+For more examples, view them on my personal [blog](https://widcard.win/posts/updater_tutorials/c04_update_from_func).
 
 ## Installation
 
 Install the plugin with npm/yarn/pnpm.
 
 ```sh
-npm install mdit-plugin-callout
+npm install mdit-plugin-callouts
 ```
 
 Import it into _vite.config.ts_
 
 ```ts
 // vite.config.ts
-import CalloutPlugin from 'mdit-plugin-callout'
+import CalloutPlugin from 'mdit-plugin-callouts'
 export default defineConfig({
   plugins: [
     Markdown({
