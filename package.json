@@ -1,7 +1,7 @@
 {
   "name": "mdit-plugin-callouts",
   "type": "module",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "",
   "packageManager": "pnpm@7.12.2",
   "author": "widcardw",
@@ -32,7 +32,10 @@
       ]
     }
   },
-  "style": ["dist/index.css", "dist/vp.css"],
+  "style": [
+    "dist/index.css",
+    "dist/vp.css"
+  ],
   "files": [
     "dist"
   ],
