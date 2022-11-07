@@ -63,6 +63,9 @@ const CalloutPlugin: MarkdownIt.PluginSimple = (md: markdownit) => {
 
       token = state.push('callout_title_open', 'summary', 1)
 
+      token = state.push('callout_icon_open', 'div', 1)
+      token = state.push('callout_icon_close', 'div', -1)
+
       token = state.push('', 'div', 1)
 
       token = state.push('inline', '', 0)
@@ -112,22 +115,13 @@ const CalloutPlugin: MarkdownIt.PluginSimple = (md: markdownit) => {
 
     return html
   }
-  md.renderer.rules[`callout_${name}_close`] = () => {
-    return '</details>'
-  }
-
-  md.renderer.rules.callout_title_open = () => {
-    return '<summary class="callout-title">'
-  }
-  md.renderer.rules.callout_title_close = () => {
-    return '</summary>'
-  }
-  md.renderer.rules.callout_fold_open = () => {
-    return '<div class="callout-fold">'
-  }
-  md.renderer.rules.callout_fold_close = () => {
-    return '</div>'
-  }
+  md.renderer.rules[`callout_${name}_close`] = () => '</details>'
+  md.renderer.rules.callout_title_open = () => '<summary class="callout-title">'
+  md.renderer.rules.callout_title_close = () => '</summary>'
+  md.renderer.rules.callout_fold_open = () => '<div class="callout-fold">'
+  md.renderer.rules.callout_fold_close = () => '</div>'
+  md.renderer.rules.callout_icon_open = () => '<div class="callout-icon">'
+  md.renderer.rules.callout_icon_close = () => '</div>'
 }
 
 export default CalloutPlugin
