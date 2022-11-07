@@ -40,7 +40,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup ./src/index.ts --format cjs,esm --dts && postcss ./src/styles/default.css > ./dist/index.css && postcss ./src/styles/vp.css > ./dist/vp.css",
+    "build": "tsup ./src/index.ts --format cjs,esm --dts && postcss ./src/styles/common.css > ./dist/common.css && postcss ./src/styles/default.css > ./dist/index.css && postcss ./src/styles/vp.css > ./dist/vp.css",
     "lint": "eslint .",
     "prepublishOnly": "nr build",
     "release": "bumpp && npm publish",
