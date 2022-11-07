@@ -1,7 +1,7 @@
 {
   "name": "mdit-plugin-callouts",
   "type": "module",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "",
   "packageManager": "pnpm@7.12.2",
   "author": "widcardw",
