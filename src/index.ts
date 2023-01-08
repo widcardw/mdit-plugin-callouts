@@ -16,9 +16,19 @@ const validateInfo = (info: string) => {
   }
 }
 
+const shiftBMark = (bMark: number, src: string) => {
+  if (src.charAt(0) !== '>')
+    return bMark
+  let spaceAfterMark = false
+  if (src.charAt(1) === ' ')
+    spaceAfterMark = true
+  return bMark + 1 + (spaceAfterMark ? 1 : 0)
+}
+
 const CalloutPlugin: MarkdownIt.PluginSimple = (md: markdownit) => {
   const marker_char = '>'
   const name = 'mditc'
+
   md.block.ruler.before('blockquote', `callout_${name}`,
     (state, startLine, endLine, silent) => {
       let start = state.bMarks[startLine] + state.tShift[startLine]
@@ -50,10 +60,14 @@ const CalloutPlugin: MarkdownIt.PluginSimple = (md: markdownit) => {
 
         if (state.src.charAt(start) !== marker_char)
           break
+
+        // shift bMarks so that the block would not be recognized as blockquote
+        state.bMarks[nextLine] = shiftBMark(state.bMarks[nextLine], state.src.substring(start, max))
       }
 
       state.lineMax = nextLine
 
+      // <details>
       let token = state.push(`callout_${name}_open`, 'details', 1)
       token.markup = marker_char
       token.block = true
@@ -61,11 +75,14 @@ const CalloutPlugin: MarkdownIt.PluginSimple = (md: markdownit) => {
       token.info = info
       token.map = [startLine, nextLine]
 
+      // <summary>
       token = state.push('callout_title_open', 'summary', 1)
 
+      // <div> for icon
       token = state.push('callout_icon_open', 'div', 1)
       token = state.push('callout_icon_close', 'div', -1)
 
+      // <div> for content of callout title
       token = state.push('', 'div', 1)
 
       token = state.push('inline', '', 0)
@@ -73,18 +90,27 @@ const CalloutPlugin: MarkdownIt.PluginSimple = (md: markdownit) => {
       token.map = [startLine, state.line]
       token.children = []
 
+      // </div> for content of callout title
       token = state.push('', 'div', -1)
 
+      // <div> for fold icon
       if (startLine + 1 < nextLine) {
         token = state.push('callout_fold_open', 'div', 1)
         token = state.push('callout_fold_close', 'div', -1)
       }
 
+      // </summary>
       token = state.push('callout_title_close', 'summary', -1)
 
-      if (startLine + 1 < nextLine)
+      // callout body
+      if (startLine + 1 < nextLine) {
+        token = state.push('', 'div', 1)
+        token.attrPush(['class', 'callout-body'])
         state.md.block.tokenize(state, startLine + 1, nextLine)
+        token = state.push('', 'div', -1)
+      }
 
+      // </details>
       token = state.push(`callout_${name}_close`, 'details', -1)
       token.markup = marker_char
       token.block = true

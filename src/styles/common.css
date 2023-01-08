@@ -67,29 +67,27 @@
 }
 
 
-.custom-callout>blockquote {
+.custom-callout>.callout-body {
     position: relative;
-    color: var(--prism-foreground);
     border-left: none;
     margin: 0 !important;
     background: rgba(0,0,0,0) !important;
     padding: 0.5rem 1rem;
 }
 
-.custom-callout>blockquote>p {
-    color: var(--prism-foreground);
+.custom-callout>.callout-body>p {
     margin: 8px 0;
 }
 
-.custom-callout>blockquote>pre {
+.custom-callout>.callout-body>pre {
     margin: 1.25rem -1rem 1.25rem -1rem;
 }
 
-.custom-callout>blockquote>pre:first-child {
+.custom-callout>.callout-body>pre:first-child {
     margin-top: -0.75rem;
 }
 
-.custom-callout>blockquote>pre:last-child {
+.custom-callout>.callout-body>pre:last-child {
     margin-bottom: -0.75rem;
 }
 
@@ -279,7 +277,7 @@
 .custom-callout.question>.callout-title>.callout-icon::before,
 .custom-callout.help>.callout-title>.callout-icon::before,
 .custom-callout.faq>.callout-title>.callout-icon::before {
-  content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgb(100, 221, 23)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-help-circle"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>')
+  content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgb(224, 172, 0)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-help-circle"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>')
 }
 
 .custom-callout.failure>.callout-title>.callout-icon::before,
